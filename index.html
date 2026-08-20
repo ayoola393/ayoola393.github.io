@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>AYOOLA DIGITAL</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #000;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    header {
+      width: 100%;
+      padding: 20px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #050505;
+      border-bottom: 1px solid #222;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #25D366;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #25D366;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px 7%;
+      background:
+        radial-gradient(circle at top, #172017 0%, #000 45%);
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 10vw, 80px);
+      margin-bottom: 15px;
+      letter-spacing: 2px;
+    }
+
+    .hero h1 span {
+      color: #25D366;
+    }
+
+    .hero p {
+      color: #bbb;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .whatsapp {
+      background: #25D366;
+      color: #000;
+    }
+
+    .whatsapp:hover {
+      transform: translateY(-3px);
+    }
+
+    .services-btn {
+      border: 1px solid #25D366;
+      color: #25D366;
+    }
+
+    .services-btn:hover {
+      background: #25D366;
+      color: #000;
+    }
+
+    /* GENERAL */
+    section {
+      padding: 80px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #999;
+    }
+
+    /* SERVICES */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #0d0d0d;
+      border: 1px solid #222;
+      border-radius: 15px;
+      padding: 30px 22px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      border-color: #25D366;
+    }
+
+    .icon {
+      font-size: 35px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #999;
+      font-size: 14px;
+    }
+
+    /* ABOUT */
+    .about {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .about p {
+      color: #aaa;
+      margin-top: 15px;
+    }
+
+    /* CONTACT */
+    .contact-box {
+      max-width: 650px;
+      margin: auto;
+      text-align: center;
+      background: #0d0d0d;
+      border: 1px solid #222;
+      border-radius: 20px;
+      padding: 40px 25px;
+    }
+
+    .contact-box p {
+      color: #aaa;
+      margin: 15px 0 25px;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 30px 7%;
+      border-top: 1px solid #222;
+      color: #777;
+      font-size: 14px;
+    }
+
+    /* FLOATING WHATSAPP */
+    .floating-whatsapp {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #25D366;
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 28px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+      z-index: 2000;
+    }
+
+    /* MOBILE */
+    @media (max-width: 650px) {
+
+      header {
+        padding: 18px 5%;
+      }
+
+      nav a {
+        margin-left: 8px;
+        font-size: 12px;
+      }
+
+      .hero {
+        min-height: 80vh;
+        padding: 50px 5%;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      section {
+        padding: 60px 5%;
+      }
+
+      .section-title h2 {
+        font-size: 30px;
+      }
+
+      .card {
+        padding: 25px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      AYOOLA <span>DIGITAL</span>
+    </div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+
+      <h1>
+        AYOOLA <span>DIGITAL</span>
+      </h1>
+
+      <p>
+        Digital services, creative designs and social-media solutions
+        to help your online presence grow.
+      </p>
+
+      <div class="buttons">
+
+        <!-- CHANGE THE NUMBER BELOW -->
+        <a
+          class="btn whatsapp"
+          href="https://wa.me/234XXXXXXXXXX"
+          target="_blank">
+          💬 Contact on WhatsApp
+        </a>
+
+        <a
+          class="btn services-btn"
+          href="#services">
+          View Services
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- SERVICES -->
+  <section id="services">
+
+    <div class="section-title">
+      <h2>Our Services</h2>
+      <p>Professional digital services for creators and businesses.</p>
+    </div>
+
+    <div class="services">
+
+      <div class="card">
+        <div class="icon">🎨</div>
+        <h3>Graphic Design</h3>
+        <p>
+          Professional flyers, banners, posters, social-media graphics
+          and promotional designs.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🎬</div>
+        <h3>Video Editing</h3>
+        <p>
+          Short-form video editing for TikTok, Instagram Reels,
+          YouTube Shorts and other platforms.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">📱</div>
+        <h3>Social Media Services</h3>
+        <p>
+          Help with social-media content, page presentation,
+          promotional materials and digital presence.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🌐</div>
+        <h3>Website Design</h3>
+        <p>
+          Simple, modern and mobile-friendly websites for individuals,
+          creators and businesses.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">📸</div>
+        <h3>Profile & Picture Design</h3>
+        <p>
+          Creative profile pictures, promotional images and
+          social-media visuals.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">📢</div>
+        <h3>Digital Promotion</h3>
+        <p>
+          Promotional content and creative materials designed
+          to help businesses reach their audience.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+  <section id="about">
+
+    <div class="section-title">
+      <h2>About AYOOLA DIGITAL</h2>
+    </div>
+
+    <div class="about">
+
+      <p>
+        Welcome to AYOOLA DIGITAL. We provide creative digital services
+        for individuals, creators and businesses.
+      </p>
+
+      <p>
+        Our goal is to provide quality designs, video editing,
+        websites and digital solutions that make your online presence
+        look professional.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+  <section id="contact">
+
+    <div class="section-title">
+      <h2>Let's Work Together</h2>
+      <p>Have a project? Contact AYOOLA DIGITAL.</p>
+    </div>
+
+    <div class="contact-box">
+
+      <h3>Ready to get started?</h3>
+
+      <p>
+        Send us a message on WhatsApp and tell us what service
+        you need.
+      </p>
+
+      <!-- CHANGE THE NUMBER BELOW -->
+      <a
+        class="btn whatsapp"
+        href="https://wa.me/234XXXXXXXXXX"
+        target="_blank">
+        💬 Message Us on WhatsApp
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <p>
+      © 2026 AYOOLA DIGITAL. All rights reserved.
+    </p>
+
+  </footer>
+
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <!-- CHANGE THE NUMBER BELOW -->
+  <a
+    class="floating-whatsapp"
+    href="https://wa.me/234XXXXXXXXXX"
+    target="_blank"
+    aria-label="Contact AYOOLA DIGITAL on WhatsApp">
+    💬
+  </a>
+
+</body>
+</html>

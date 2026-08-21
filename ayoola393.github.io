@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AYOOLA DIGITAL</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background-color: #0d0d0d;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 5%;
+      background: #141414;
+      border-bottom: 1px solid #222;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #25D366;
+    }
+    nav a {
+      color: #ccc;
+      text-decoration: none;
+      margin-left: 15px;
+      font-size: 14px;
+    }
+    nav a:hover {
+      color: #25D366;
+    }
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(180deg, #141414 0%, #0d0d0d 100%);
+    }
+    .hero h1 {
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+    .hero p {
+      color: #aaa;
+      max-width: 600px;
+      margin: 0 auto 25px auto;
+    }
+    .services-container {
+      padding: 40px 5%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 26px;
+      margin-bottom: 30px;
+      color: #25D366;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #181818;
+      border: 1px solid #282828;
+      padding: 25px;
+      border-radius: 12px;
+      transition: transform 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #25D366;
+    }
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .card p {
+      color: #aaa;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    .btn {
+      display: inline-block;
+      background-color: #25D366;
+      color: #000;
+      font-weight: bold;
+      padding: 10px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .btn:hover {
+      background-color: #1eb855;
+    }
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      border-top: 1px solid #222;
+      color: #666;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">AYOOLA DIGITAL</div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Welcome to Ayoola Digital</h1>
+    <p>Your one-stop destination for social media accounts, virtual numbers, account boosting, and digital graphic services.</p>
+  </section>
+
+  <section class="services-container" id="services">
+    <h2 class="section-title">Our Services</h2>
+    <div class="grid">
+
+      <div class="card">
+        <h3>🛍️ Buy Account</h3>
+        <p>Get fully verified social media and digital accounts delivered instantly.</p>
+        <a href="https://wa.me/2348188950291?text=Hi%20Ayoola,%20I%20want%20to%20buy%20an%20account" class="btn" target="_blank">Order on WhatsApp</a>
+      </div>
+
+      <div class="card">
+        <h3>📱 Buy Number</h3>
+        <p>Virtual numbers for WhatsApp, Telegram, and SMS verification codes.</p>
+        <a href="https://wa.me/2348188950291?text=Hi%20Ayoola,%20I%20want%20to%20buy%20a%20virtual%20number" class="btn" target="_blank">Order on WhatsApp</a>
+      </div>
+
+      <div class="card">
+        <h3>🚀 Boost Accounts</h3>
+        <p>Increase followers, likes, views, and social media engagement fast.</p>
+        <a href="https://wa.me/2348188950291?text=Hi%20Ayoola,%20I%20want%20to%20boost%20my%20social%20media%20account" class="btn" target="_blank">Order on WhatsApp</a>
+      </div>
+
+      <div class="card">
+        <h3>🎬 Video Editing</h3>
+        <p>Short-form video editing for TikTok, Instagram Reels, and YouTube Shorts.</p>
+        <a href="https://wa.me/2348188950291?text=Hi%20Ayoola,%20I%20need%20video%20editing%20services" class="btn" target="_blank">Order on WhatsApp</a>
+      </div>
+
+      <div class="card">
+        <h3>🖼️ Graphic Design</h3>
+        <p>Professional flyers, banners, logos, and promotional designs.</p>
+        <a href="https://wa.me/2348188950291?text=Hi%20Ayoola,%20I%20need%20graphic%20design%20services" class="btn" target="_blank">Order on WhatsApp</a>
+      </div>
+
+      <div class="card">
+        <h3>🌐 Website Design</h3>
+        <p>Simple, modern, and mobile-friendly websites for business.</p>
+        <a href="https://wa.me/2348188950291?text=Hi%20Ayoola,%20I%20need%20a%20website" class="btn" target="_blank">Order on WhatsApp</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer id="contact">
+    <p>© 2026 AYOOLA DIGITAL. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

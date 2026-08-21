@@ -1,3 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AYOOLA DIGITAL</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #1a1a1a;
+            padding-bottom: 40px;
+        }
+
+        /* Top Header Navigation */
+        header {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0d0d0d;
+        }
+
+        .user-icon {
+            width: 32px;
+            height: 32px;
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .container {
+            padding: 20px 16px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Dashboard Overview Banner */
+        .dashboard-card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border: 1px solid #eaeaea;
+        }
+
+        .greeting {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .greeting span {
+            color: #2563eb;
+        }
+
+        .sub-greeting {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 16px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #e6f4ea;
+            color: #137333;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #34a853;
+            border-radius: 50%;
+        }
+
+        /* Balance Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .stat-box {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 14px;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #64748b;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-value {
+            font-size: 18px;
+            font-weight: 800;
+            margin-top: 4px;
+            color: #0f172a;
+        }
+
+        /* Quick Actions Grid */
+        .section-title {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #334155;
+        }
+
+        .quick-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .action-card {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 16px 12px;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: transform 0.1s ease;
+        }
+
+        .action-card:active {
+            transform: scale(0.98);
+        }
+
+        .action-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px auto;
+            font-size: 20px;
+        }
+
+        .icon-blue { background-color: #eff6ff; color: #2563eb; }
+        .icon-purple { background-color: #f3e8ff; color: #9333ea; }
+        .icon-orange { background-color: #fff7ed; color: #ea580c; }
+        .icon-green { background-color: #f0fdf4; color: #16a34a; }
+
+        .action-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        /* Country & Service Selection Section */
+        .services-section {
+            background-color: #ffffff;
+            border-radius: 16px;
+            padding: 18px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 10px;
+            border: 1px solid #cbd5e1;
+            background-color: #f8fafc;
+            font-size: 14px;
+            margin-bottom: 16px;
+            outline: none;
+        }
+
+        .country-selector {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            margin-bottom: 16px;
+        }
+
+        .country-chip {
+            background-color: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            white-space: nowrap;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .country-chip.active {
+            background-color: #2563eb;
+            color: #ffffff;
+            border-color: #2563eb;
+        }
+
+        /* Service Item Listing */
+        .service-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .service-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 14px;
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+        }
+
+        .service-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .service-icon {
+            font-size: 22px;
+        }
+
+        .service-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .service-server {
+            font-size: 11px;
+            color: #64748b;
+        }
+
+        .service-price {
+            font-size: 15px;
+            font-weight: 800;
+            color: #16a34a;
+        }
+
+        .btn-order {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 4px;
+        }
+
+        /* Order Form Popup */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .modal-content h3 {
+            margin-bottom: 14px;
+            font-size: 18px;
+            color: #0f172a;
+        }
+
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #475569;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+            font-size: 14px;
+        }
+
+        .modal-btns {
+            display: flex;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .btn-submit {
+            flex: 1;
+            background-color: #16a34a;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .btn-cancel {
+            background-color: #e2e8f0;
+            color: #334155;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-title">AYOOLA DIGITAL</div>
+        <div class="user-icon">AD</div>
+    </header>
+
+    <div class="container">
+        
+        <!-- Dashboard Card -->
+        <div class="dashboard-card">
+            <div class="greeting">Good Day, <span>Guest</span></div>
+            <div class="sub-greeting">Welcome to Ayoola Digital services portal.</div>
+            <div class="status-badge">
+                <div class="status-dot"></div>
+                All systems operational
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-label">Total Balance</div>
+                    <div class="stat-value">₦0.00</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Success Rate</div>
+                    <div class="stat-value">99.8%</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions Grid -->
+        <div class="section-title">Quick Actions</div>
+        <div class="quick-actions">
+            <div class="action-card" onclick="openModal('Buy Account')">
+                <div class="action-icon icon-blue">🛍️</div>
+                <div class="action-title">Buy Account</div>
+            </div>
+            <div class="action-card" onclick="openModal('Buy Number')">
+                <div class="action-icon icon-purple">📱</div>
+                <div class="action-title">Buy Number</div>
+            </div>
+            <div class="action-card" onclick="openModal('Boost Accounts')">
+                <div class="action-icon icon-orange">🚀</div>
+                <div class="action-title">Boost Accounts</div>
+            </div>
+            <div class="action-card" onclick="openModal('Fund Wallet')">
+                <div class="action-icon icon-green">💳</div>
+                <div class="action-title">Fund Wallet</div>
+            </div>
+        </div>
+
+        <!-- Services & Virtual Numbers Section -->
+        <div class="services-section">
+            <div class="section-title">Available Services</div>
+            <input type="text" class="search-box" placeholder="Search service name...">
+
+            <div class="country-selector">
+                <div class="country-chip active">🇺🇸 United States</div>
+                <div class="country-chip">🇬🇧 United Kingdom</div>
+                <div class="country-chip">🇩🇪 Germany</div>
+                <div class="country-chip">🇳🇬 Nigeria</div>
+            </div>
+
+            <div class="service-list">
+                <div class="service-item">
+                    <div class="service-info">
+                        <div class="service-icon">💬</div>
+                        <div>
+                            <div class="service-name">WhatsApp Number</div>
+                            <div class="service-server">Server 1 • Instant SMS</div>
+                        </div>
+                    </div>
+                    <div style="text-align: right;">
+                        <div class="service-price">₦1,005</div>
+                        <button class="btn-order" onclick="openModal('WhatsApp Number (US)')">Order</button>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-info">
+                        <div class="service-icon">✈️</div>
+                        <div>
+                            <div class="service-name">Telegram Number</div>
+                            <div class="service-server">Server 2 • Instant SMS</div>
+                        </div>
+                    </div>
+                    <div style="text-align: right;">
+                        <div class="service-price">₦850</div>
+                        <button class="btn-order" onclick="openModal('Telegram Number (US)')">Order</button>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-info">
+                        <div class="service-icon">👤</div>
+                        <div>
+                            <div class="service-name">Facebook Account</div>
+                            <div class="service-server">Aged / Verified</div>
+                        </div>
+                    </div>
+                    <div style="text-align: right;">
+                        <div class="service-price">₦2,500</div>
+                        <button class="btn-order" onclick="openModal('Facebook Account')">Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Order Popup Form Modal -->
+    <div class="modal-overlay" id="orderModal">
+        <div class="modal-content">
+            <h3 id="modalTitle">Order Service</h3>
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <input type="hidden" name="Service" id="serviceInput">
+                
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" name="Name" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Phone Number / WhatsApp</label>
+                    <input type="text" name="Contact" placeholder="e.g. 08012345678" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Additional Order Details</label>
+                    <textarea name="Details" rows="3" placeholder="Specify quantity or preference"></textarea>
+                </div>
+
+                <div class="modal-btns">
+                    <button type="submit" class="btn-submit">Submit Order</button>
+                    <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openModal(serviceName) {
+            document.getElementById('modalTitle').innerText = 'Order: ' + serviceName;
+            document.getElementById('serviceInput').value = serviceName;
+            document.getElementById('orderModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('orderModal').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
 
 <!DOCTYPE html>
 <html lang="en">
